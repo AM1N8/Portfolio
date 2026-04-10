@@ -1,0 +1,53 @@
+---
+title: "Building in Public: What I Learned Shipping 6 Side Projects"
+date: "2024-10-02"
+description: "A retrospective on shipping side projects in public — what worked, what didn't, and the counterintuitive lessons I picked up about scope, marketing, and momentum."
+tags: ["Side Projects", "Open Source", "Indie Dev", "Lessons"]
+slug: "building-in-public"
+---
+
+Over the past three years, I've shipped six side projects. Two got meaningful traction, one made a small amount of money, and three were what I'd charitably call "learning experiences." Here's what I took away from all of them.
+
+## Ship the Smallest Possible Version
+
+My first project was an ambitious monitoring dashboard. I spent four months building features — custom alerting rules, team management, Slack integrations, a gorgeous UI with dark mode. By the time I launched, I was burned out and the market had moved on.
+
+My most successful project, Formkit Validators, started as a 200-line file I extracted from a client project. I published it to npm on a Friday afternoon with a README that had three examples. It solved one specific problem well, and that was enough to get initial users.
+
+```typescript
+// The entire initial API surface
+import { string, number, array } from 'formkit-validators';
+
+const schema = string().email().max(255);
+const result = schema.validate(input);
+```
+
+The lesson: scope is everything. Cut features until it hurts, then cut more. You can always add things later, but you can't get back the momentum you lost while building in isolation.
+
+## Marketing Is Not Optional
+
+I used to believe that good software markets itself. "If you build it, they will come." This is demonstrably false. My best-engineered project (a WebSocket debugging proxy) got 12 GitHub stars. My simplest project (a new-tab browser extension) got 2,000 users — because I posted about it on Hacker News and Reddit.
+
+What worked for me:
+
+- **Writing about the process**, not just the product. My blog post about building Terracli's diffing algorithm got 10x more engagement than the launch announcement.
+- **Engaging in communities** where potential users hang out. Not spamming links, but genuinely helping people and mentioning my tool when relevant.
+- **Making the README excellent.** A clear problem statement, a GIF showing the tool in action, and copy-paste installation instructions. Most developers decide whether to try a tool within 30 seconds of landing on the repo.
+
+## Consistency Beats Intensity
+
+My failed projects all share a pattern: two weeks of intense, 4-hours-per-night coding, followed by complete abandonment. The projects that succeeded had a different rhythm — one or two hours a few times a week, sustained over months.
+
+I started using a simple rule: work on the side project for at least 30 minutes, three times a week. No exceptions, no excuses. Some sessions I'd only fix one bug or write one test. But the project kept moving forward, and that compounding progress is powerful.
+
+## Open Source Is a Superpower
+
+Every project I've open-sourced has given me more than I put in. Contributors found bugs I missed, suggested features I hadn't considered, and in two cases, completely rewrote subsystems to be faster and cleaner than my original implementation.
+
+But more importantly, open-sourcing my work forced me to write better code. When you know others will read your code, you document better, handle edge cases, and think about API design more carefully.
+
+## The Meta-Lesson
+
+The most counterintuitive thing I've learned: **finishing matters more than perfecting.** A shipped project with rough edges teaches you more than an unfinished project with perfect architecture. Ship it, learn from the feedback, and iterate.
+
+Every one of those six projects made me a better engineer — even the ones that "failed." The code I write today is cleaner, faster, and more user-focused because of those experiences. That's the real return on investment.
