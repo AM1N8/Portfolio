@@ -250,6 +250,23 @@ img {
   color: var(--color-green) !important;
 }
 
+/* ── Interactive Cards ────────────────────────────────── */
+.card-interactive {
+  border-top: 1px solid var(--color-border);
+  padding: 1.5rem;
+  transition: outline 150ms ease, border-color 150ms ease;
+  outline: 1px solid transparent;
+}
+
+.card-interactive:hover, .card-interactive:focus-within {
+  outline: 1px solid var(--color-green);
+  border-top-color: transparent;
+}
+
+.card-interactive:hover .card-title, .card-interactive:focus-within .card-title {
+  color: var(--color-green) !important;
+}
+
 /* ── Prose / MDX Content ──────────────────────────────── */
 .prose-portfolio {
   color: var(--color-white);

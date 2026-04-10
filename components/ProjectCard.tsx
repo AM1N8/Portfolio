@@ -11,23 +11,16 @@ interface ProjectCardProps {
 export default function ProjectCard({ project }: ProjectCardProps) {
   return (
     <article
+      className="card-interactive"
       style={{
-        borderTop: "1px solid var(--color-border)",
-        padding: "1.5rem 1rem 1.5rem 0",
         display: "flex",
         flexDirection: "column",
         gap: "0.75rem",
-        transition: "background-color 0.2s ease",
-      }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.02)";
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.backgroundColor = "transparent";
       }}
     >
       {/* Project Name */}
       <h3
+        className="card-title"
         style={{
           fontFamily: "var(--font-mono)",
           fontSize: "0.9375rem",

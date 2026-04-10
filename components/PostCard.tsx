@@ -16,19 +16,7 @@ export default function PostCard({ post }: PostCardProps) {
   });
 
   return (
-    <article
-      style={{
-        borderTop: "1px solid var(--color-border)",
-        padding: "1.5rem 0",
-        transition: "background-color 0.2s ease",
-      }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.02)";
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.backgroundColor = "transparent";
-      }}
-    >
+    <article className="card-interactive">
       <Link
         href={`/writing/${post.slug}`}
         style={{ display: "block" }}
@@ -49,19 +37,14 @@ export default function PostCard({ post }: PostCardProps) {
 
         {/* Title */}
         <h3
+          className="card-title"
           style={{
             fontFamily: "var(--font-mono)",
             fontSize: "1.125rem",
             fontWeight: 600,
             color: "var(--color-white)",
             marginBottom: "0.5rem",
-            transition: "color 0.2s ease",
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.color = "var(--color-green)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.color = "var(--color-white)";
+            transition: "color 150ms ease",
           }}
         >
           {post.title}
