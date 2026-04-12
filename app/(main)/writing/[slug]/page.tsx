@@ -3,6 +3,11 @@ import { notFound } from "next/navigation";
 import { getPostBySlug, getAllSlugs } from "@/lib/mdx";
 import { createMetadata } from "@/lib/metadata";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import ZoomImage from "@/components/ZoomImage";
+
+const components = {
+  ZoomImage,
+};
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -126,7 +131,7 @@ export default async function PostPage({ params }: PageProps) {
 
         {/* Post Content */}
         <div className="prose-portfolio">
-          <MDXRemote source={post.content} />
+          <MDXRemote source={post.content} components={components} />
         </div>
       </article>
     </div>

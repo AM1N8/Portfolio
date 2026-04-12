@@ -4,9 +4,15 @@ import type { Metadata } from "next";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { createMetadata } from "@/lib/metadata";
+import { config } from "@/lib/config";
 import "@/styles/globals.css";
 
+import TerminalProvider from "@/components/TerminalProvider";
+import { CRTProvider } from "@/components/CRTProvider";
+import Screensaver from "@/components/Screensaver";
+
 export const metadata: Metadata = createMetadata();
+
 
 export default function RootLayout({
   children,
@@ -32,9 +38,14 @@ export default function RootLayout({
           flexDirection: "column",
         }}
       >
-        <Nav />
-        <main style={{ flex: 1 }}>{children}</main>
-        <Footer />
+        <CRTProvider>
+          <TerminalProvider config={config}>
+            <Nav config={config} />
+            <main style={{ flex: 1 }}>{children}</main>
+            <Footer config={config} />
+          </TerminalProvider>
+        </CRTProvider>
+        <Screensaver />
       </body>
     </html>
   );

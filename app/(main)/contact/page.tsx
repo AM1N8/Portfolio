@@ -3,6 +3,8 @@
 import type { Metadata } from "next";
 import { createMetadata } from "@/lib/metadata";
 import ContactForm from "@/components/ContactForm";
+import { config } from "@/lib/config";
+
 
 export function generateMetadata(): Metadata {
   return createMetadata({
@@ -42,13 +44,13 @@ export default function ContactPage() {
           Have a project idea, want to collaborate, or just want to say hello?
           Drop me a message below or reach out directly at{" "}
           <a
-            href="mailto:mohamedaminedarraj@gmail.com"
+            href={`mailto:${config.socials.email}`}
             style={{
               color: "var(--color-green)",
               transition: "color 0.2s ease",
             }}
           >
-            mohamedaminedarraj@gmail.com
+            {config.socials.email}
           </a>
           .
         </p>
@@ -96,7 +98,7 @@ export default function ContactPage() {
                 color: "var(--color-muted)",
               }}
             >
-              Meknès, Morocco
+              {(config as any).socials.location || "Meknès, Morocco"}
             </p>
           </div>
           <div>
@@ -114,7 +116,7 @@ export default function ContactPage() {
               Email
             </h3>
             <a
-              href="mailto:mohamedaminedarraj@gmail.com"
+              href={`mailto:${config.socials.email}`}
               style={{
                 fontFamily: "var(--font-mono)",
                 fontSize: "0.8125rem",
@@ -122,7 +124,7 @@ export default function ContactPage() {
                 transition: "color 0.2s ease",
               }}
             >
-              mohamedaminedarraj@gmail.com
+              {config.socials.email}
             </a>
           </div>
           <div>
@@ -140,7 +142,7 @@ export default function ContactPage() {
               GitHub
             </h3>
             <a
-              href="https://github.com/AM1N8"
+              href={config.socials.github}
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -150,7 +152,7 @@ export default function ContactPage() {
                 transition: "color 0.2s ease",
               }}
             >
-              github.com/AM1N8
+              {config.socials.github.replace("https://", "")}
             </a>
           </div>
         </div>

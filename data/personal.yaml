@@ -1,0 +1,103 @@
+# Global Personal Information
+name: "Mohamed Amine Darraj"
+nickname: "CDXV"
+tagline: "AI Engineering student at ENSAM Meknès, specializing in Machine Learning, Deep Learning, and Computer Vision."
+short_description: "Engineering intelligent solutions through AI, Computer Vision, and Data Science."
+
+# Social Links
+socials:
+  github: "https://github.com/AM1N8"
+  linkedin: "https://www.linkedin.com/in/mohamed-amine-darraj-5015423ab/"
+  twitter: "https://twitter.com/one1276"
+  discord: "https://discord.com/users/one1276"
+  email: "mohamedaminedarraj@gmail.com"
+  location: "Ouarzazate, Morocco"
+
+# About Page Content
+bio:
+  - "I am a passionate AI Engineering student currently in the engineering cycle at ENSAM Meknès, specializing in Machine Learning, Deep Learning, and Computer Vision."
+  - "Backed by a strong academic foundation, I have proven experience building intelligent systems, reinforcement learning algorithms, and predictive modeling solutions. My goal is to transform innovative ideas into real-world applications through data and algorithms."
+
+# Vibes / Marquee
+marquee:
+  - "CDXV"
+  - "HEAVY MACHINE GUN"
+  - "CDXV"
+  - "THERE IS NO END TO THE LARP"
+  - "CDXV"
+  - "PRESS CTRL+` TO OPEN THE TERMINAL"
+  - "CDXV"
+  - "DO NOT ACTIVATE LIGHTMODE"
+
+# Resume Data
+resume:
+  experiences:
+    - company: "YAZAKI Meknès"
+      role: "IT Department Intern"
+      startDate: "Jun 2025"
+      endDate: "Aug 2025"
+      bullets:
+        - "Participated in the management and maintenance of industrial information systems within a large-scale IT department."
+        - "Contributed to the analysis and optimization of business processes using tools adapted to industrial constraints."
+        - "Involved in IT security missions including access management and network surveillance."
+    - company: "Club Info Gadz'it — ENSAM Meknès"
+      role: "Active Member"
+      startDate: "2022"
+      endDate: "Present"
+      bullets:
+        - "AI Research Cell: participation in AI research projects and technical workshops."
+        - "Competitive Programming: participation in algorithmic problem-solving competitions."
+        - "Collaboration on innovative tech projects and peer knowledge-sharing initiatives."
+  
+  education:
+    - institution: "ENSAM Meknès"
+      degree: "Engineering Cycle — Artificial Intelligence & Data Technologies"
+      startDate: "2024"
+      endDate: "Present"
+      detail: ""
+    - institution: "ENSAM Meknès"
+      degree: "Integrated Preparatory Cycle"
+      startDate: "2022"
+      endDate: "2024"
+      detail: ""
+    - institution: "Lycée Technique Ibn El Haitham"
+      degree: "Baccalauréat in Mathematical Sciences, Option B"
+      startDate: "2021"
+      endDate: "2022"
+      detail: "Mention: Bien"
+
+  skills:
+    - category: "Languages"
+      items: ["Python", "C++", "Java", "R", "Julia"]
+    - category: "AI / ML"
+      items: ["PyTorch", "TensorFlow", "Scikit-learn"]
+    - category: "Data Science"
+      items: ["Pandas", "NumPy", "Matplotlib"]
+    - category: "Computer Vision"
+      items: ["OpenCV", "Image Processing"]
+    - category: "Web"
+      items: ["JavaScript", "HTML", "CSS", "SQL"]
+    - category: "Tools"
+      items: ["Git", "MATLAB", "Linux", "Bash", "Godot", "Docker", "FastAPI"]
+    - category: "Interests"
+      items:
+        - "Game Development & AI"
+        - "Machine Learning & Deep Learning"
+        - "Computer Vision Applications"
+        - "Reinforcement Learning Systems"
+
+# Terminal Files
+files:
+  games.txt:
+    - "🎮 Games I play:"
+    - " - Elden Ring"
+    - " - Terraria"
+    - " - Hollow Knight"
+    - " - Factorio"
+    - " - Balatro"
+
+  notes.txt:
+    - "📝 Current Focus:"
+    - " - Working on my AI engineering portfolio"
+    - " - Training CV models for semantic segmentation"
+    - " - Advancing in deep learning algorithms"

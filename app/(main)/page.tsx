@@ -3,8 +3,10 @@
 import Link from "next/link";
 import { projects } from "@/data/projects";
 import { getAllPosts } from "@/lib/mdx";
+import { config } from "@/lib/config";
 import ProjectCard from "@/components/ProjectCard";
 import PostCard from "@/components/PostCard";
+
 
 export default function HomePage() {
   const featuredProjects = projects.filter((p) => p.featured).slice(0, 4);
@@ -27,7 +29,7 @@ export default function HomePage() {
         className="animate-fade-in"
       >
         <h1 className="page-title" style={{ marginBottom: "1.5rem" }}>
-          <span className="slash">/</span> MOHAMED AMINE DARRAJ{/* TODO: replace */}
+          <span className="slash">/</span> {config.name.toUpperCase()}
         </h1>
         <p
           style={{
@@ -39,7 +41,7 @@ export default function HomePage() {
             marginBottom: "2rem",
           }}
         >
-          Passionate AI Engineering student at ENSAM Meknès, specializing in Machine Learning, Deep Learning, and Computer Vision. I transform innovative ideas into intelligent systems and predictive modeling solutions.
+          {config.tagline}
         </p>
         <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
           <Link href="/projects" className="btn-primary">

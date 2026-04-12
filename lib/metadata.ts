@@ -2,10 +2,11 @@
 
 import type { Metadata } from "next";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://amin8.dev"; // TODO: replace
-const SITE_NAME = "Darraj Mohamed Amine"; // TODO: replace
-const SITE_DESCRIPTION =
-  "Full-Stack Engineer & Open Source Contributor. Building tools that developers actually want to use.";
+import { config } from "./config";
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://amin8.dev";
+const SITE_NAME = config.name;
+const SITE_DESCRIPTION = config.short_description;
 
 export function createMetadata(overrides: Partial<Metadata> = {}): Metadata {
   const title = overrides.title

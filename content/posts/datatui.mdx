@@ -1,0 +1,113 @@
+---
+title: "DataTUI: My First Journey into Terminal-Based EDA"
+date: "2026-04-10"
+description: "DataTUI represents my first experience building a Text-based User Interface (TUI) with Python, Textual, and Rich. Here's how I built a toolkit for efficient exploratory data analysis directly in the terminal."
+tags: ["Python", "Textual", "Rich", "EDA", "TUI", "CLI", "Data Analysis", "Polars"]
+slug: "datatui"
+---
+
+<p align="center">
+  <img src="https://github.com/AM1N8/DATATUI/raw/main/assets/logo_TUI.png" alt="DataTUI Logo" width="500" />
+</p>
+
+# DataTUI
+
+DataTUI is a terminal-based toolkit designed for efficient exploratory data analysis (EDA). This project represents a significant milestone in my development journey: it was my **first time** diving deep into the world of Text-based User Interfaces (TUIs). 
+
+Moving away from traditional web-based dashboards, I wanted to create something that lived where developers spend most of their time: the terminal.
+
+## The First TUI Experience
+
+Building DataTUI was an exploration into modern terminal aesthetics and interactivity. I heavily leaned on the Python ecosystem, specifically:
+
+- **[Textual](https://www.textualize.io/)**: Used to build the complex, stateful interactive interface. Learning the event-driven architecture of Textual was a fascinating challenge.
+- **[Rich](https://rich.readthedocs.io/)**: Handled the beautiful formatting, tables, and console output that make the CLI mode so readable.
+- **[Polars](https://pola.rs/)**: Provided the lightning-fast data processing engine under the hood.
+
+## Core Capabilities
+
+### Command Line Interface
+
+The CLI provides granular commands for rapid data inspection, powered by `Rich` for a clean, structured display:
+
+- **Schema and metadata extraction**: Get a clear overview of your data structure.
+- **Statistical summary generation**: Insights for both numeric and categorical data.
+- **Missing value analysis**: Detection of patterns in null data.
+- **Outlier identification**: Multi-method statistical outlier detection.
+- **Correlation analysis**: Distribution testing and relationship mapping.
+
+### Interactive TUI
+
+This was the most rewarding part of the build. Using `Textual`, I crafted an interactive terminal interface for navigating dataset characteristics:
+
+- **Real-time navigation**: Seamlessly switch between statistics and schema views.
+- **Embedded visualizations**: Using ASCII and terminal-friendly plots, including histograms and heatmaps.
+- **Dynamic filtering**: Drill down into specific data segments through interactive detail panels.
+
+### Reporting
+
+Generate comprehensive HTML reports containing:
+
+- Interactive Plotly visualizations.
+- Detailed data quality assessments.
+- Summarized analysis of distributions and correlations.
+
+## Getting Started
+
+### Installation
+
+Ensure you have the latest version of `uv` or `pip` installed.
+
+```bash
+uv run datatui --help
+```
+
+### Usage
+
+Analyze a dataset via the CLI:
+
+```bash
+datatui stats data/your_dataset.csv
+```
+
+Launch the interactive interface:
+
+```bash
+datatui tui data/your_dataset.csv
+```
+
+Generate a full analysis report:
+
+```bash
+datatui report data/your_dataset.csv --output report.html
+```
+
+## Analysis Insights
+
+DataTUI provides high-fidelity statistical visualizations directly in the terminal and in generated reports. Here are some examples of the analysis capabilities:
+
+<ZoomImage 
+  src="https://github.com/AM1N8/DATATUI/raw/main/assets/Outliers.png" 
+  alt="Outlier Detection" 
+  caption="Multi-method outlier detection and visualization // Built with Polars & Rich" 
+/>
+
+<ZoomImage 
+  src="https://github.com/AM1N8/DATATUI/raw/main/assets/distribution.png" 
+  alt="Data Distribution" 
+  caption="Automated distribution analysis and plotting // Textual Navigation" 
+/>
+
+<ZoomImage 
+  src="https://github.com/AM1N8/DATATUI/raw/main/assets/normality_tests.png" 
+  alt="Normality Tests" 
+  caption="Comprehensive statistical normality and distribution testing" 
+/>
+
+## Future Roadmap
+
+Development is focused on enhancing multivariate analysis support, increasing visualization fidelity in the TUI, and streamlining the integration of external data connectors.
+
+---
+
+**View on GitHub:** [AM1N8/DATATUI](https://github.com/AM1N8/DATATUI)

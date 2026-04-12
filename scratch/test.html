@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { background: #111; color: #0f0; margin: 0; height: 100vh; overflow: hidden; }
+    #scroll { height: 100vh; overflow-y: auto; }
+    .content { padding: 50px; }
+    .fixed { position: fixed; bottom: 0; left: 0; right: 0; height: 50px; background: red; }
+    .scanlines { position: fixed; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 1px, black 2px); pointer-events: none;}
+    body.curved {
+      filter: url(#fisheye);
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div id="scroll">
+    <div class="content">Scroll me...<br><br><br><br><br><br><br><br><br><br><br><br><br>End</div>
+  </div>
+  <div class="fixed">FOOTER</div>
+  <div class="scanlines"></div>
+  <svg style="position: absolute; width: 0; height: 0;">
+    <filter id="fisheye">
+      <feDisplacementMap in="SourceGraphic" scale="50" xChannelSelector="R" yChannelSelector="G">
+        <feImage href="data:image/svg+xml;utf8,<svg width='100' height='100' xmlns='http://www.w3.org/2000/svg'><radialGradient id='g'><stop offset='0%'/><stop offset='100%'/></radialGradient><rect width='100' height='100' fill='url(#g)'/></svg>" result="map"/>
+      </feDisplacementMap>
+    </filter>
+  </svg>
+</body>
+</html>

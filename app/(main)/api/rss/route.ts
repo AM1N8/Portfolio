@@ -3,10 +3,12 @@
 import { NextResponse } from "next/server";
 import { getAllPosts } from "@/lib/mdx";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://amin8.dev"; // TODO: replace
-const SITE_NAME = "Darraj Mohamed Amine"; // TODO: replace
-const SITE_DESCRIPTION =
-  "Full-Stack Engineer & Open Source Contributor. Building tools that developers actually want to use.";
+import { config } from "@/lib/config";
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://amin8.dev";
+const SITE_NAME = config.name;
+const SITE_DESCRIPTION = config.short_description;
+
 
 function escapeXml(str: string): string {
   return str

@@ -2,13 +2,14 @@
 
 import type { Metadata } from "next";
 import { createMetadata } from "@/lib/metadata";
-import { resume } from "@/data/resume";
+import { config } from "@/lib/config";
 import {
   ExperienceTimeline,
   EducationList,
   SkillsGrid,
 } from "@/components/ResumeSection";
 import MusicWidget from "@/components/MusicWidget";
+
 
 export function generateMetadata(): Metadata {
   return createMetadata({
@@ -37,29 +38,21 @@ export default function AboutPage() {
         </h1>
         <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-12 mb-16">
           <div>
-            <p
-              style={{
-                fontFamily: "var(--font-body)",
-                fontSize: "1.0625rem",
-                lineHeight: 1.7,
-                color: "var(--color-muted)",
-                maxWidth: "640px",
-                marginBottom: "1rem"
-              }}
-            >
-              I am a passionate AI Engineering student currently in the engineering cycle at ENSAM Meknès, specializing in Machine Learning, Deep Learning, and Computer Vision.
-            </p>
-            <p
-              style={{
-                fontFamily: "var(--font-body)",
-                fontSize: "1.0625rem",
-                lineHeight: 1.7,
-                color: "var(--color-muted)",
-                maxWidth: "640px",
-              }}
-            >
-              Backed by a strong academic foundation, I have proven experience building intelligent systems, reinforcement learning algorithms, and predictive modeling solutions. My goal is to transform innovative ideas into real-world applications through data and algorithms.
-            </p>
+            {config.bio.map((paragraph, index) => (
+              <p
+                key={index}
+                style={{
+                  fontFamily: "var(--font-body)",
+                  fontSize: "1.0625rem",
+                  lineHeight: 1.7,
+                  color: "var(--color-muted)",
+                  maxWidth: "640px",
+                  marginBottom: index === config.bio.length - 1 ? 0 : "1rem"
+                }}
+              >
+                {paragraph}
+              </p>
+            ))}
           </div>
           <MusicWidget />
         </div>
@@ -83,7 +76,7 @@ export default function AboutPage() {
         >
           <span style={{ color: "var(--color-green)" }}>/</span> Experience
         </h2>
-        <ExperienceTimeline experiences={resume.experiences} />
+        <ExperienceTimeline experiences={config.resume.experiences} />
       </section>
 
       <hr className="card-divider" />
@@ -106,7 +99,7 @@ export default function AboutPage() {
         >
           <span style={{ color: "var(--color-green)" }}>/</span> Skills
         </h2>
-        <SkillsGrid skills={resume.skills} />
+        <SkillsGrid skills={config.resume.skills} />
       </section>
 
       <hr className="card-divider" />
@@ -129,7 +122,7 @@ export default function AboutPage() {
         >
           <span style={{ color: "var(--color-green)" }}>/</span> Education
         </h2>
-        <EducationList education={resume.education} />
+        <EducationList education={config.resume.education} />
       </section>
     </div>
   );

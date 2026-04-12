@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body { background: #111; color: #fff; font-family: monospace; }
+  .box { width: 100px; height: 100px; background: #0f0; margin: 50px; }
+  .bloom-layer {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    backdrop-filter: blur(10px) brightness(1.2) contrast(1.5);
+    mix-blend-mode: screen;
+    opacity: 0.8;
+  }
+</style>
+</head>
+<body>
+  <h1>TEST BLOOM</h1>
+  <div class="box"></div>
+  <div class="bloom-layer"></div>
+</body>
+</html>

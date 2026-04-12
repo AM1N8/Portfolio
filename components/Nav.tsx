@@ -4,29 +4,19 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { PersonalConfig } from "@/lib/config";
+
 
 const navLinks = [
   { href: "/projects", label: "Projects" },
   { href: "/writing", label: "Writing" },
   { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
 ];
 
-const TAGLINE = "Transforming innovative ideas into intelligent solutions through AI and data.";
-
-const RANDOM_QUOTES = [
-  "CDXV",
-  "There is no end to the larp",
-  "heavy machine gun",
-  "CDXV",
-  "Always be shipping",
-  "Data never sleeps",
-  "Hack the planet"
-];
-const MARQUEE_TEXT = "★ " + Array(10).fill(RANDOM_QUOTES.join(" ★ ")).join(" ★ ") + " ";
-
-export default function Nav() {
+export default function Nav({ config }: { config: PersonalConfig }) {
   const pathname = usePathname();
+  const MARQUEE_TEXT = "★ " + Array(5).fill(config.marquee.join(" ★ ")).join(" ★ ") + " ";
+
 
   return (
     <header
@@ -72,7 +62,7 @@ export default function Nav() {
                 paddingRight: "3rem",
               }}
             >
-              {TAGLINE} ★ {TAGLINE} ★&nbsp;
+              {config.tagline} ★ {config.tagline} ★&nbsp;
             </span>
             <span
               style={{
@@ -82,7 +72,7 @@ export default function Nav() {
                 paddingRight: "3rem",
               }}
             >
-              {TAGLINE} ★ {TAGLINE} ★&nbsp;
+              {config.tagline} ★ {config.tagline} ★&nbsp;
             </span>
           </div>
         </div>
@@ -99,7 +89,7 @@ export default function Nav() {
             marginRight: "auto",
           }}
         >
-          MOHAMED AMINE DARRAJ{/* TODO: replace */}
+          {config.name.toUpperCase()}
         </Link>
 
         {/* Nav Links — Right */}
@@ -146,7 +136,7 @@ export default function Nav() {
             );
           })}
           <Link href="/contact" className="btn-primary" style={{ marginLeft: "0.5rem" }}>
-            Hire Me
+            Contact
           </Link>
         </nav>
       </div>

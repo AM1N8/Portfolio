@@ -3,14 +3,17 @@
 import { ImageResponse } from "@vercel/og";
 import { NextRequest } from "next/server";
 
-export const runtime = "edge";
+import { config } from "@/lib/config";
+
+export const runtime = "nodejs";
 
 export async function GET(request: NextRequest) {
   const { searchParams } = request.nextUrl;
-  const title = searchParams.get("title") || "Darraj Mohamed Amine"; // TODO: replace
+  const title = searchParams.get("title") || config.name;
   const description =
     searchParams.get("description") ||
-    "Full-Stack Engineer & Open Source Contributor";
+    config.tagline;
+
 
   return new ImageResponse(
     (
@@ -101,7 +104,7 @@ export async function GET(request: NextRequest) {
               fontSize: "18px",
             }}
           >
-            amin8.dev{/* TODO: replace */}
+            {new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://amin8.dev").hostname}
           </span>
           <span
             style={{
@@ -109,7 +112,7 @@ export async function GET(request: NextRequest) {
               fontSize: "18px",
             }}
           >
-            github.com/AM1N8{/* TODO: replace */}
+            {config.socials.github.replace("https://", "")}
           </span>
         </div>
       </div>
