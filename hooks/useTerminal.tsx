@@ -126,6 +126,7 @@ export type TerminalState = {
   isMatrixActive: boolean;
   isFullscreen: boolean;
   vim: VimState;
+  playingTrack: { id: string; name: string; artist: string; start?: number } | null;
 };
 
 export const AVAILABLE_COMMANDS = [
@@ -144,6 +145,8 @@ export const AVAILABLE_COMMANDS = [
   "screensaver",
   "fullscreen",
   "light_mode",
+  "music",
+  "sudo",
   "clear",
   "exit",
 ];
@@ -211,6 +214,7 @@ export function useTerminal(config: PersonalConfig, closeTerminal: () => void, c
     isMatrixActive: false,
     isFullscreen: false,
     vim: { ...INITIAL_VIM_STATE },
+    playingTrack: null,
   });
 
   const undoStackRef = useRef<string[][]>([]);
@@ -356,11 +360,45 @@ export function useTerminal(config: PersonalConfig, closeTerminal: () => void, c
     const args = parts.slice(1);
 
     switch (cmd) {
+      case "music": {
+        const sub = args[0]?.toLowerCase();
+        const songs = {
+          "1": { id: "uUCS0Ful438", name: "Tied & True", artist: "Ween" },
+          "2": { id: "J46DowUIJBs", name: "Advent", artist: "Opeth", start: 15 },
+          "3": { id: "VTJcLE_VVX8", name: "They Might As Well Be Dead", artist: "Chris Christodoulou" },
+          "4": { id: "AcoRc2ieFzE", name: "Samurai", artist: "Lupe Fiasco" },
+          "5": { id: "4qCOSgeJ-_I", name: "One Day", artist: "Gary Moore" }
+        };
+
+        if (!sub) {
+          print(`  Select a track by typing 'music <number>':`, "success");
+          print(`  1 - spongebob type beat`);
+          print(`  2 - death metah`);
+          print(`  3 - and his music was electric`);
+          print(`  4 - welcome to da samurai`);
+          print(`  5 - da bluuuues`);
+          print(`  off - Turn off music`);
+        } else if (sub === "off" || sub === "stop") {
+          setState((prev) => ({ ...prev, playingTrack: null }));
+          print(`music off.`, "success");
+        } else if (songs[sub as keyof typeof songs]) {
+          const track = songs[sub as keyof typeof songs];
+          setState((prev) => ({ ...prev, playingTrack: track }));
+          print(`Playing: ${track.name} by ${track.artist}`, "success");
+        } else {
+          print(`music: unknown track '${sub}'`, "error");
+        }
+        break;
+      }
+
       case "sudo":
         if (args.join(" ") === "rm -rf /" || args.join(" ") === "rm -rf /*") {
           handleRmRf();
         } else {
-          print(`cdxv is not in the sudoers file. This incident will be reported.`, "error");
+          print(`executing with elevated privileges...`, "muted");
+          setTimeout(() => {
+            window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank");
+          }, 800);
         }
         break;
 
@@ -389,6 +427,7 @@ export function useTerminal(config: PersonalConfig, closeTerminal: () => void, c
         print(`  crt              Toggle CRT shader overlay`);
         print(`  fastfetch        System info + ASCII art`);
         print(`  cmatrix          Digital rain effect`);
+        print(`  music            Play background audio`);
         print(`  clear            Clear terminal output`);
         print(`  exit             Close the terminal`);
         break;
@@ -1182,6 +1221,7 @@ export function useTerminal(config: PersonalConfig, closeTerminal: () => void, c
     isMatrixActive: state.isMatrixActive,
     isFullscreen: state.isFullscreen,
     vim: state.vim,
+    playingTrack: state.playingTrack,
     handleVimKey: handleVimKeyWrapped,
     executeCommand,
     getPreviousCommand,

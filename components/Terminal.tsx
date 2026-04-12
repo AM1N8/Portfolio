@@ -231,7 +231,7 @@ function VimEditor({
 // ── Terminal Component ───────────────────────────────────────
 export default function Terminal({ isOpen, closeTerminal, config }: TerminalProps) {
   const crt = useCRT();
-  const { history, theme, isMatrixActive, isFullscreen, vim, handleVimKey, exitMatrix, executeCommand, getPreviousCommand, getNextCommand, autocomplete } = useTerminal(config, closeTerminal, crt);
+  const { history, theme, isMatrixActive, isFullscreen, vim, playingTrack, handleVimKey, exitMatrix, executeCommand, getPreviousCommand, getNextCommand, autocomplete } = useTerminal(config, closeTerminal, crt);
   const [input, setInput] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
   const bodyRef = useRef<HTMLDivElement>(null);
@@ -478,6 +478,19 @@ export default function Terminal({ isOpen, closeTerminal, config }: TerminalProp
               </div>
             </div>
           </>
+        )}
+        
+        {/* Invisible Audio Player for 'music' Command */}
+        {playingTrack && (
+          <iframe 
+            width="0" 
+            height="0" 
+            src={`https://www.youtube.com/embed/${playingTrack.id}?autoplay=1&enablejsapi=1&start=${playingTrack.start || 0}`}
+            frameBorder="0" 
+            allow="autoplay; encrypted-media" 
+            title="YouTube Audio" 
+            style={{ position: 'absolute', opacity: 0, pointerEvents: 'none' }}
+          />
         )}
       </div>
     </div>
