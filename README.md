@@ -1,9 +1,5 @@
 # My Portfolio: 
 
-## Overview
-
-Mohamed Amine Darraj (CDXV) is an AI Engineering student specializing in Machine Learning, Deep Learning, and Computer Vision. This project is a professional engineering portfolio built with a focus on interactivity and modern web technologies. It features a fully integrated terminal environment, allowing visitors to interact with the site's content and configuration through a command-line interface.
-
 ## Technical Architecture
 
 The portfolio is architected for performance and extensibility using the following stack:
@@ -63,10 +59,4 @@ The application will be accessible at [http://localhost:3000](http://localhost:3
 | `music` | Controls the background audio jukebox. |
 | `light_mode` | Toggles the high-contrast accessibility theme. |
 | `sudo` | Executes commands with elevated system privileges. |
-
-## Professional Details
-
-- **GitHub**: [github.com/AM1N8](https://github.com/AM1N8)
-- **LinkedIn**: [linkedin.com/in/mohamed-amine-darraj-5015423ab](https://www.linkedin.com/in/mohamed-amine-darraj-5015423ab/)
-- **Location**: Meknès, Morocco
 
